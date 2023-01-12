@@ -3,7 +3,7 @@ import { useEffect } from "react";
 export default function SendNotification({users, fcmAccessToken}){ 
     const filterByTokens = users?.filter(user => user.token !== null)
     const regTokens = filterByTokens?.map(user => user.token)
-    console.log(regTokens)
+    console.log(regTokens, "length", regTokens.length)
 
     useEffect(() => {
       if (regTokens.length > 0){
