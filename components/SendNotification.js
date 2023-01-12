@@ -6,7 +6,7 @@ export default function SendNotification({users, fcmAccessToken}){
     console.log(regTokens)
 
     useEffect(() => {
-      if (regTokens !== []){
+      if (regTokens.length > 0){
       regTokens?.map(token => {
         const payload = {
           message: {
