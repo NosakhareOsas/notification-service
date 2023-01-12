@@ -29,5 +29,9 @@ messaging.onBackgroundMessage(payload => {
   
 
   self.registration.showNotification(title, options)
+  self.registration.onclick = (event) => {
+    event.preventDefault(); // prevent the browser from focusing the Notification's tab
+    window.open('/offers', '_blank');
+  }
 
 })
