@@ -37,7 +37,7 @@ export default function SendNotification({users, fcmAccessToken}){
         })
           // console.log("token here", token)   
         }
-    }, [])
+    }, [regTokens])
     return(
         <>
             <h1>Send notifications page</h1>
