@@ -6,6 +6,7 @@ export default function SendNotification({users, fcmAccessToken}){
     console.log(regTokens)
 
     useEffect(() => {
+      if (regTokens !== []){
       regTokens?.map(token => {
         const payload = {
           message: {
@@ -35,6 +36,7 @@ export default function SendNotification({users, fcmAccessToken}){
         .then((data) => (console.log(data, "token", token)));
       }).catch((e)=>console.log(e))
         // console.log("token here", token)   
+      }
     }, [])
     return(
         <>
