@@ -33,7 +33,7 @@ export default function SendNotification({users, fcmAccessToken}){
           body: JSON.stringify(payload)
         }).then((res) => res.json())
         .then((data) => (console.log(data, "token", token)));
-      })
+      }).catch((e)=>console.log(e))
         // console.log("token here", token)   
     }, [])
     return(
