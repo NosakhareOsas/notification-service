@@ -21,17 +21,23 @@ const messaging = firebase.messaging();
 messaging.onBackgroundMessage(payload => {
   console.log("background message", payload)
 
-  const title = payload.notification.title
+  const title = payload?.data?.title
   const options = {
-    body: payload.notification.body,
-    icon: payload.notification.icon
+    body: payload?.data?.body,
+    icon: payload?.data?.icon,
+    url: payload?.data?.url
   }
+
+  console.log("self reg", self.registration)
   
 
   self.registration.showNotification(title, options)
-  self.registration.onclick = (event) => {
-    event.preventDefault(); // prevent the browser from focusing the Notification's tab
-    window.open('/offers', '_blank');
-  }
+  // self.registration.onclick = (event) => {
+  //   console.log('i was clicked from bg')
+  //   event.preventDefault(); // prevent the browser from focusing the Notification's tab
+  //   window.open('/offers', '_blank');
+    
+  // }
 
 })
+

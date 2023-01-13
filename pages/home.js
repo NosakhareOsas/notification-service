@@ -8,7 +8,7 @@ export default function Home() {
     <PushNotificationLayout>
       <div className={styles.container}>
         <main className={styles.main}>
-          <h2>Home Page 6</h2>
+          <h2>Home Page 7</h2>
         </main>
       </div>
     </PushNotificationLayout>

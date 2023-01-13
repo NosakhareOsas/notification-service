@@ -34,7 +34,7 @@ function PushNotificationLayout({ children }) {
         const token = await firebaseCloudMessaging.init();
         if (token && router.query.id) {
           console.log("token", token);
-          fetch(`https://f235-102-89-22-22.ngrok.io/users/${router.query.id}`, {
+          fetch(`https://30f1-102-89-23-150.ngrok.io/users/${router.query.id}`, {
             method: 'PATCH',
             headers: {
               'content-type': 'application/json',
@@ -64,8 +64,8 @@ function PushNotificationLayout({ children }) {
       console.log("foreground message", message)
       toast(
         <div onClick={() => handleClickPushNotification(message?.data?.url)}>
-          <h5>{message?.notification?.title}</h5>
-          <h6>{message?.notification?.body}</h6>
+          <h5>{message?.data?.title}</h5>
+          <h6>{message?.data?.body}</h6>
         </div>,
         {
           closeOnClick: false,
