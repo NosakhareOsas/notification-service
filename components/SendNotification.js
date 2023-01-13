@@ -14,7 +14,9 @@ export default function SendNotification({users, fcmAccessToken}){
               token: token,
               notification: {
                 title: "very New year BONUS!!!",
-                body: "25% off all movies in January"
+                body: "25% off all movies in January",
+                badge: "/badge",
+                icon: "/popcorn"
               },
               data: {
                   url: "/offers",
