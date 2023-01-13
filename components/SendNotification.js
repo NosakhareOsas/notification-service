@@ -46,13 +46,13 @@ export default function SendNotification({users, fcmAccessToken}){
             <h1>Send notifications page</h1>
             <form onSubmit={handleSubmit}>
               <label for="first">Notification Title:</label>
-              <input type="text" id="title" name="title" onChange={handleChange} required/>
+              <input type="text" id="title" name="title"  required/>
               <label for="last">Notification Message:</label>
-              <input type="text" id="body" name="body" onChange={handleChange} required/>
+              <input type="text" id="body" name="body"  required/>
               <label for="last">Notification Image:</label>
-              <input type="text" id="image" name="image" onChange={handleChange} />
+              <input type="text" id="image" name="image"  />
               <label for="last">Notification URL:</label>
-              <input type="text" id="url" name="url" onChange={handleChange} required/>
+              <input type="text" id="url" name="url"  required/>
               <button type="submit">Submit</button>
           </form>
         </> 
