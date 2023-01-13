@@ -15,8 +15,7 @@ export default function SendNotification({users, fcmAccessToken}){
               notification: {
                 title: "very New year BONUS!!!",
                 body: "25% off all movies in January",
-                badge: "/badge",
-                icon: "/popcorn"
+                image: "https://api.mymovies.africa/content/uploads/159523d727df74e6_port.jpg",
               },
               data: {
                   url: "/offers",
