@@ -18,20 +18,23 @@ firebase.initializeApp({
 // messages.
 const messaging = firebase.messaging();
 
-messaging.onBackgroundMessage(payload => {
-  console.log("background message", payload)
+// Retrieve an instance of Firebase Messaging so that it can handle background
+// messages.
 
-  const title = payload?.data?.title
-  const options = {
-    body: payload?.data?.body,
-    icon: payload?.data?.icon,
-    url: payload?.data?.url
-  }
+// messaging.onBackgroundMessage(payload => {
+//   console.log("background message", payload)
 
-  console.log("self reg", self.registration)
+//   const title = payload?.data?.title
+//   const options = {
+//     body: payload?.data?.body,
+//     icon: payload?.data?.icon,
+//     url: payload?.data?.url
+//   }
+
+//   console.log("self reg", self.registration)
   
 
-  self.registration.showNotification(title, options)
+//   self.registration.showNotification(title, options)
   // self.registration.onclick = (event) => {
   //   console.log('i was clicked from bg')
   //   event.preventDefault(); // prevent the browser from focusing the Notification's tab
@@ -39,5 +42,4 @@ messaging.onBackgroundMessage(payload => {
     
   // }
 
-})
-
+// })
