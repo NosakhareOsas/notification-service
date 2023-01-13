@@ -1,30 +1,29 @@
-import { useEffect } from "react";
-
 export default function SendNotification({users, fcmAccessToken}){ 
     const filterByTokens = users?.filter(user => user.token !== null)
     const regTokens = filterByTokens?.map(user => user.token)
     
     console.log(regTokens, "length", regTokens.length)
 
-    useEffect(() => {
+    function handleSubmit(e){
+      e.preventDefault();
       if (regTokens.length > 0){
         regTokens?.map(token => {
           const payload = {
             message: {
               token: token,
               notification: {
-                title: "very New year BONUS!!!",
-                body: "25% off all movies in January",
-                image: "https://api.mymovies.africa/content/uploads/159523d727df74e6_port.jpg",
+                title: e.target.title.value,
+                body: e.target.body.value,
+                image: e.target.image.value,
               },
               data: {
-                  url: "/offers",
-                  title: "New year BONUS!!!",
-                  body: "25% off all movies in January"
+                  url: e.target.url.value,
+                  title: e.target.title.value,
+                  body: e.target.body.value
               },
               webpush: {
                 fcm_options: {
-                  link: "/offers"
+                  link: e.target.url.value
                 }
               }
             }
@@ -41,10 +40,21 @@ export default function SendNotification({users, fcmAccessToken}){
         })
           // console.log("token here", token)   
         }
-    }, [regTokens])
+    }
     return(
         <>
             <h1>Send notifications page</h1>
+            <form onSubmit={handleSubmit}>
+              <label for="first">Notification Title:</label>
+              <input type="text" id="title" name="title" onChange={handleChange} required/>
+              <label for="last">Notification Message:</label>
+              <input type="text" id="body" name="body" onChange={handleChange} required/>
+              <label for="last">Notification Image:</label>
+              <input type="text" id="image" name="image" onChange={handleChange} />
+              <label for="last">Notification URL:</label>
+              <input type="text" id="url" name="url" onChange={handleChange} required/>
+              <button type="submit">Submit</button>
+          </form>
         </> 
     );
 }
