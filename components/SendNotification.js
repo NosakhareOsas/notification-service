@@ -1,3 +1,4 @@
+import styles from "../styles/Send.module.css";
 export default function SendNotification({users, fcmAccessToken}){ 
     const filterByTokens = users?.filter(user => user.token !== null)
     const regTokens = filterByTokens?.map(user => user.token)
@@ -19,7 +20,8 @@ export default function SendNotification({users, fcmAccessToken}){
               data: {
                   url: e.target.url.value,
                   title: e.target.title.value,
-                  body: e.target.body.value
+                  body: e.target.body.value,
+                  image: e.target.image.value,
               },
               webpush: {
                 fcm_options: {
@@ -42,7 +44,7 @@ export default function SendNotification({users, fcmAccessToken}){
         }
     }
     return(
-        <>
+        <div className={styles.container}>
             <h1>Send notifications page</h1>
             <form onSubmit={handleSubmit}>
               <label for="first">Notification Title:</label>
@@ -50,11 +52,11 @@ export default function SendNotification({users, fcmAccessToken}){
               <label for="last">Notification Message:</label>
               <input type="text" id="body" name="body"  required/>
               <label for="last">Notification Image:</label>
-              <input type="text" id="image" name="image"  />
+              <input type="text" id="image" name="image" />
               <label for="last">Notification URL:</label>
-              <input type="text" id="url" name="url"  required/>
+              <input type="text" id="url" name="url" />
               <button type="submit">Submit</button>
           </form>
-        </> 
+        </div> 
     );
 }

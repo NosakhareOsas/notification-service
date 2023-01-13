@@ -1,5 +1,4 @@
 import SendNotification from "../components/SendNotification";
-import PushNotificationLayout from "../components/PushNotificationLayout";
 import { useEffect, useState } from "react";
 
 export default function Home() {
