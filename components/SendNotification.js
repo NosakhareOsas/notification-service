@@ -45,7 +45,7 @@ export default function SendNotification({users, fcmAccessToken}){
     }
     return(
         <div className={styles.container}>
-            <h1>Send notifications page</h1>
+            <h1>Send Notifications </h1>
             <form onSubmit={handleSubmit}>
               <label for="first">Notification Title:</label>
               <input type="text" id="title" name="title"  required/>
