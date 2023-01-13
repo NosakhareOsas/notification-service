@@ -55,7 +55,7 @@ export default function SendNotification({users, fcmAccessToken}){
               <input type="text" id="image" name="image" />
               <label for="last">Notification URL:</label>
               <input type="text" id="url" name="url" />
-              <input type="submit">Submit</input>
+              <button type="submit">Submit</button>
           </form>
         </div> 
     );
