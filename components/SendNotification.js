@@ -11,25 +11,21 @@ export default function SendNotification({users, fcmAccessToken}){
         regTokens?.map(token => {
           const payload = {
             message: {
-              token: token,
+              token: "eaCSV4DbgoWuS_MIunB9DP:APA91bHfSVXm4K_5XpWJFR2bzBfcO_EKnfpb2LHx3l1wRtSsD5FLEJUNsCF4j8-lv3t5ZytLeWpL8RmBErzcsZUPTBEAXh8YQ-ArYstQsb4c8daEaYqKVmHW39DtDBhH5OhBTXxAVHg2",
+              notification: {
+                title: "very New year BONUS!!!",
+                body: "25% off all movies in January"
+              },
               data: {
-                title: "Igue festival BONUS!!!",
-                body: "30% off all movies in January",
-                url: `/offers`
+                  url: "/offers",
+                  title: "New year BONUS!!!",
+                  body: "25% off all movies in January"
+              },
+              webpush: {
+                fcm_options: {
+                  link: "/offers"
+                }
               }
-              // webpush: {
-              //   // fcm_options: {
-              //   //   link: `/offers`
-              //   // },
-              //   data: {
-              //     title: "Igue festival BONUS!!!",
-              //     body: "30% off all movies in January",
-              //     url: `/offers`
-              //   },
-              //   // data: {
-              //   //     url: `/offers`
-              //   // },
-              // }
             }
           }
           fetch('https://fcm.googleapis.com//v1/projects/fcm-demo-d11b4/messages:send', { 
