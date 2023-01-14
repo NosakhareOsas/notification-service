@@ -18,3 +18,14 @@
     padding: 20px;
     color: white;
   }
+
+  .right {
+    position: relative;
+    margin-left: 100px;
+    background-color: #043b2d;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
