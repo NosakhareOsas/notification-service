@@ -1,5 +1,7 @@
 import styles from "../styles/Send.module.css";
+import { useState } from "react";
 export default function SendNotification({users, fcmAccessToken}){ 
+  const [modal, setModal] = useState(null)
     const filterByTokens = users?.filter(user => user.token !== null)
     const regTokens = filterByTokens?.map(user => user.token)
     
@@ -38,25 +40,46 @@ export default function SendNotification({users, fcmAccessToken}){
             }, 
             body: JSON.stringify(payload)
           }).then((res) => res.json())
-          .then((data) => (console.log(data, "token", token, "payload", payload)));
-        })
-          // console.log("token here", token)   
+          .then((data) => {
+            setModal('success')
+            {console.log(data, "token", token, "payload", payload)}
+          })
+          .catch((error) => {
+            setModal('error')
+            {console.log(error)}
+            
+          });
+        })  
         }
     }
     return(
-        <div className={styles.container}>
-            <h1>Send Notifications </h1>
-            <form onSubmit={handleSubmit}>
-              <label for="first">Notification Title:</label>
-              <input type="text" id="title" name="title"  required/>
-              <label for="last">Notification Message:</label>
-              <input type="text" id="body" name="body"  required/>
-              <label for="last">Notification Image:</label>
-              <input type="text" id="image" name="image" />
-              <label for="last">Notification URL:</label>
-              <input type="text" id="url" name="url" />
-              <button type="submit">Submit</button>
-          </form>
-        </div> 
+        <>
+          <div className={styles.container}>
+              <h1>Send Notifications </h1>
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="first">Notification Title:</label>
+                <input type="text" id="title" name="title"  required/>
+                <label htmlFor="last">Notification Message:</label>
+                <input type="text" id="body" name="body"  required/>
+                <label htmlFor="last">Notification Image:</label>
+                <input type="text" id="image" name="image" />
+                <label htmlFor="last">Notification URL:</label>
+                <input type="text" id="url" name="url" />
+                <button type="submit">Submit</button>
+            </form>
+          </div>
+          {
+            modal === "success" ? 
+            <div className={styles.success}>
+              Notifications successfully sent
+            </div> : null
+          }
+          {
+            modal === "error" ? 
+            <div className={styles.error}>
+              Notifications not sent, try again!!!
+            </div> : null
+          }
+        </>
     );
 }
