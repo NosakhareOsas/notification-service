@@ -73,7 +73,7 @@ export default function SendNotification({users, fcmAccessToken}){
             <div className={styles.success}>
               Notifications successfully sent
               <button onClick={()=>setModal(null)} className={styles.right}>
-                clear notification
+                clear 
               </button>
             </div> : null
           }
@@ -82,7 +82,7 @@ export default function SendNotification({users, fcmAccessToken}){
             <div className={styles.error}>
               Notifications not sent, try again!!!
               <button onClick={()=>setModal(null)} className={styles.right}>
-                clear notification
+                clear 
               </button>
             </div> : null
           }
